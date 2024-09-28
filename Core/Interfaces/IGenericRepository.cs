@@ -17,5 +17,6 @@ namespace Core.Interfaces
         void Remove(T entity);
         Task<bool> SaveAllAsync();
         bool Exists(Guid id);
+        Task<int> CountAsync(ISpecification<T> spec);
     }
 }
