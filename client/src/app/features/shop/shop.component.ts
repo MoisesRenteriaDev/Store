@@ -22,7 +22,6 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-shop',
   standalone: true,
   imports: [
-    MatCard,
     ProductItemComponent,
     MatButton,
     MatIcon,
@@ -31,7 +30,7 @@ import { FormsModule } from '@angular/forms';
     MatListOption,
     MatMenuTrigger,
     MatPaginator,
-    FormsModule
+    FormsModule,
   ],
   templateUrl: './shop.component.html',
   styleUrl: './shop.component.scss',
@@ -66,9 +65,9 @@ export class ShopComponent implements OnInit {
     });
   }
 
-  onSearchChange(){
+  onSearchChange() {
     this.shopParams.pageNumber = 1;
-    this.getProducts()
+    this.getProducts();
   }
 
   handlePageEvent(event: PageEvent) {
@@ -100,7 +99,7 @@ export class ShopComponent implements OnInit {
         this.shopParams.brands = result.selectedBrands;
         this.shopParams.types = result.selectedTypes;
         this.shopParams.pageNumber = 1;
-        
+
         //apply filters
         this.getProducts();
       },

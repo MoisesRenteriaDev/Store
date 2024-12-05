@@ -17,7 +17,7 @@ namespace API.Controllers
         }
 
         [HttpGet("{id:guid}")]
-        public async Task<ActionResult<Product>> GetProduct(Guid id)
+        public async Task<ActionResult<Product>> GetProduct(int id)
         {
             var product = await repo.GetByIdAsync(id);
 
@@ -40,7 +40,7 @@ namespace API.Controllers
         }
 
         [HttpPut("{id:guid}")]
-        public async Task<ActionResult> UpdateProduct(Guid id, Product product)
+        public async Task<ActionResult> UpdateProduct(int id, Product product)
         {
             if (product.Id != id || !ProductExists(id))
                 return BadRequest("Cannot update this product");
@@ -56,7 +56,7 @@ namespace API.Controllers
         }
 
         [HttpDelete("{id:guid}")]
-        public async Task<ActionResult> DeleteProduct(Guid id)
+        public async Task<ActionResult> DeleteProduct(int id)
         {
             var product = await repo.GetByIdAsync(id);
 
@@ -89,7 +89,7 @@ namespace API.Controllers
             return Ok(await repo.ListAsync(spec));
         }
 
-        private bool ProductExists(Guid id)
+        private bool ProductExists(int id)
         {
             return repo.Exists(id);
         }

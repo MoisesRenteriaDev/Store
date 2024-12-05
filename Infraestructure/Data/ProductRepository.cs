@@ -23,7 +23,7 @@ namespace Infraestructure.Data
                 .ToListAsync();
         }
 
-        public async Task<Product> GetProductByIdAsync(Guid id)
+        public async Task<Product> GetProductByIdAsync(int id)
         {
             return await context.Products.FindAsync(id);
         }
@@ -56,7 +56,7 @@ namespace Infraestructure.Data
                 .ToListAsync();
         }
 
-        public bool ProductExists(Guid id)
+        public bool ProductExists(int id)
         {
             return context.Products.Any(p => p.Id == id);
         }

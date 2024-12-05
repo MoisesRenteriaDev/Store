@@ -20,12 +20,12 @@ namespace Infraestructure.Data
             return await query.CountAsync();
         }
 
-        public bool Exists(Guid id)
+        public bool Exists(int id)
         {
             return context.Set<T>().Any(x => x.Id == id);
         }
 
-        public async Task<T> GetByIdAsync(Guid id)
+        public async Task<T> GetByIdAsync(int id)
         {
             return await context.Set<T>().FindAsync(id);
         }
