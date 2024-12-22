@@ -16,7 +16,7 @@ namespace API.Controllers
             return await CreatePagedResult(repo, spec, specParams.PageIndex, specParams.PageSize);
         }
 
-        [HttpGet("{id:guid}")]
+        [HttpGet("{id:int}")]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
             var product = await repo.GetByIdAsync(id);
@@ -39,7 +39,7 @@ namespace API.Controllers
             return BadRequest("Problem Creating Product");
         }
 
-        [HttpPut("{id:guid}")]
+        [HttpPut("{id:int}")]
         public async Task<ActionResult> UpdateProduct(int id, Product product)
         {
             if (product.Id != id || !ProductExists(id))
